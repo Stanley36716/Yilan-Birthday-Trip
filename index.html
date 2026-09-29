@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#12324a">
+<title>宜蘭兩天一夜 2026/10/17–10/18</title>
+<meta name="description" content="全家宜蘭包棟兩天一夜遊行程表(手機版)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f3f6f5; --ink:#12324a; --muted:#587083; --card:#fff; --line:#d6e1dd;
+  --sea:#1b6f8f; --foam:#dcebe6; --warn:#fff3d6; --warn-ink:#6b4a00;
+  --d1:#d8365b; --d1s:#fbe4e9; --d2:#e0632a; --d2s:#fdeadf;
+  --a:var(--d1); --as:var(--d1s);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0e1f2b; --ink:#e8f1ef; --muted:#9db3bf; --card:#152d3d; --line:#274456;
+    --sea:#6cc0dc; --foam:#183a4a; --warn:#3a3016; --warn-ink:#ffd98a;
+    --d1:#ff7a97; --d1s:#3a2030; --d2:#ff9a66; --d2s:#3a2a20;
+  }
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{height:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+  font-size:16px;line-height:1.6;-webkit-text-size-adjust:100%;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+a{color:inherit}
+
+/* Header */
+header{background:var(--ink);color:#fff;
+  padding:calc(20px + env(safe-area-inset-top,0px)) 20px 22px}
+header .wrap{max-width:640px;margin:0 auto}
+header h1{margin:0;font-size:28px;font-weight:900;letter-spacing:.04em;line-height:1.2}
+header p{margin:4px 0 0;opacity:.8;font-size:14px}
+.chips{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.chips span{background:rgba(255,255,255,.14);padding:2px 12px;border-radius:999px;font-size:13.5px;font-weight:500}
+
+main{max-width:640px;margin:0 auto;padding:16px 14px 8px}
+.panel{display:none}
+.panel.on{display:block}
+.panel[data-day="1"]{--a:var(--d1);--as:var(--d1s)}
+.panel[data-day="2"]{--a:var(--d2);--as:var(--d2s)}
+.panel h2{margin:4px 2px 2px;font-size:24px;font-weight:900;color:var(--a)}
+.panel .sub{margin:0 2px 14px;color:var(--muted);font-size:14.5px}
+
+/* Notices */
+.note{background:var(--warn);color:var(--warn-ink);border-radius:14px;padding:12px 14px;margin:0 0 14px;font-size:14.5px;line-height:1.55}
+.note b{font-weight:700}
+.note ul{margin:6px 0 0;padding-left:18px}
+
+/* Timeline */
+ol{list-style:none;margin:0;padding:0}
+.stop{position:relative;padding-left:58px;padding-bottom:8px}
+.stop::before{content:"";position:absolute;left:19px;top:22px;bottom:-8px;width:2px;
+  background:repeating-linear-gradient(var(--line) 0 4px,transparent 4px 8px)}
+.stop:last-child::before{display:none}
+.stop .dot{position:absolute;left:11px;top:14px;width:18px;height:18px;border-radius:50%;
+  background:var(--card);border:4px solid var(--a)}
+.stop .time{position:absolute;left:0;top:35px;width:52px;font-size:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px 14px 12px}
+.card .t{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.card .clock{font-weight:900;font-size:22px;color:var(--a);font-variant-numeric:tabular-nums;line-height:1.2}
+.card .kind{font-size:12.5px;font-weight:500;padding:1px 9px;border-radius:999px;background:var(--foam);color:var(--sea)}
+.card h3{margin:4px 0 0;font-size:18px;line-height:1.4;font-weight:700}
+.card .stay{margin:2px 0 0;color:var(--muted);font-size:14px}
+.card p{margin:8px 0 0;font-size:15px;color:var(--muted)}
+.card ul{margin:8px 0 0;padding-left:20px;font-size:15px;color:var(--muted)}
+.card li{margin:2px 0}
+.badge{display:inline-block;margin-top:8px;background:var(--ink);color:var(--bg);font-weight:500;
+  font-size:13.5px;padding:3px 12px;border-radius:999px}
+.actions{display:flex;gap:8px;margin-top:12px}
+.btn{flex:1;min-height:44px;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;font-weight:700;font-size:15px;border-radius:12px;
+  background:var(--as);color:var(--a)}
+.btn.sea{background:var(--foam);color:var(--sea)}
+.btn:active{opacity:.7}
+.btn:focus-visible,.tab:focus-visible{outline:3px solid var(--sea);outline-offset:2px}
+.drive{margin:0 0 8px 58px;font-size:13.5px;color:var(--muted);padding:2px 0}
+.drive b{font-weight:500;background:var(--foam);color:var(--sea);padding:2px 10px;border-radius:999px}
+
+/* details */
+details.alt{background:var(--card);border:1px solid var(--line);border-radius:16px;margin-top:14px}
+details.alt summary{cursor:pointer;list-style:none;padding:14px;font-weight:700;min-height:48px}
+details.alt summary::-webkit-details-marker{display:none}
+details.alt summary::after{content:"＋";float:right;color:var(--muted)}
+details.alt[open] summary::after{content:"－"}
+details.alt .body{padding:0 14px 14px;color:var(--muted);font-size:15px}
+details.alt .body p{margin:0 0 8px}
+details.alt .body ul{margin:0;padding-left:20px}
+
+/* food */
+.food{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin-bottom:10px}
+.food h3{margin:0;font-size:17px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.food p{margin:4px 0 0;font-size:14.5px;color:var(--muted)}
+.tag{font-size:12px;font-weight:500;padding:1px 9px;border-radius:999px;background:var(--d1s);color:var(--d1)}
+.tag.q{background:var(--warn);color:var(--warn-ink)}
+.group{margin:18px 2px 8px;font-size:15px;font-weight:700;color:var(--sea)}
+
+/* Bottom tabs */
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--card);border-top:1px solid var(--line);
+  padding:8px 10px calc(8px + env(safe-area-inset-bottom,0px));display:flex;gap:8px;justify-content:center}
+.tab{flex:1;max-width:200px;min-height:52px;border:0;border-radius:14px;background:transparent;
+  color:var(--muted);font:inherit;font-weight:700;font-size:15px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;line-height:1.25;cursor:pointer}
+.tab small{font-weight:500;font-size:12px}
+.tab[aria-selected="true"]{color:#fff}
+.tab[data-t="1"][aria-selected="true"]{background:var(--d1)}
+.tab[data-t="2"][aria-selected="true"]{background:var(--d2)}
+.tab[data-t="3"][aria-selected="true"]{background:var(--sea)}
+@media (prefers-color-scheme:dark){.tab[aria-selected="true"]{color:#10202b}}
+
+footer{max-width:640px;margin:8px auto 0;padding:0 16px;text-align:center;color:var(--muted);font-size:12.5px}
+@media (min-width:700px){main{padding-top:24px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>宜蘭兩天一夜</h1>
+    <p>全家宜蘭包棟兩天一夜遊</p>
+    <div class="chips"><span>10/17 週六</span><span>10/18 週日</span></div>
+  </div>
+</header>
+
+<main>
+  <section class="panel on" id="p1" data-day="1" role="tabpanel">
+    <h2>第 1 天 · 10/17 週六</h2>
+    <p class="sub">三重 → 振興醫院回診 → 宜蘭</p>
+
+    <div class="note">
+      <b>時間為預估:</b>國5 週六南下 07:00–16:00 易壅塞,10/17 不是連假,南下沒有高乘載管制。
+      若 11:45 前到不了頭城,請改走備案,<b>最晚 12:50 要離開景點</b>,才趕得上 13:30 前到來來牛排。
+    </div>
+
+    <ol id="list1"></ol>
+
+    <details class="alt">
+      <summary>備案:車況太差時的替代景點</summary>
+      <div class="body">
+        <p><b>羅東林業文化園區(羅東林場)</b>:免門票、全年無休,有貯木池、林鐵小火車與日式宿舍,離來來牛排約 15 分鐘,可以把蘭陽博物館換成這裡,壓縮成 40 分鐘散步。</p>
+        <p style="margin-top:10px"><b>其他近期熱門但偏年幼</b>:張美阿嬤農場(水豚、梅花鹿)、星夢森林劇場,國中生比較不適合,這次沒有排。</p>
+      </div>
+    </details>
+  </section>
+
+  <section class="panel" id="p2" data-day="2" role="tabpanel">
+    <h2>第 2 天 · 10/18 週日</h2>
+    <p class="sub">礁溪逛一圈,回三重神農街</p>
+
+    <div class="note">
+      <b>回程提醒:</b>國5 每週日 15:00–20:00 在蘇澳、羅東、宜蘭、頭城北向入口實施<b>高乘載管制(車內需 3 人以上)</b>,
+      且週日下午北上容易塞車,17:15 抵達只是不塞車時的預估。想更保險,可以縮短金車蘭花園,14:45 前就上路。
+    </div>
+
+    <ol id="list2"></ol>
+  </section>
+
+  <section class="panel" id="p3" data-day="1" role="tabpanel">
+    <h2>冬山夜市</h2>
+    <p class="sub">週六 18:00–22:00 · 冬山火車站旁,中華路一帶</p>
+
+    <div class="note">
+      <ul>
+        <li>夜市只在週六營業,網友提到下雨天可能不擺攤。</li>
+        <li>攤販在火車站前的馬路上,無法停進車站停車場,要在附近自己找車位。</li>
+        <li>建議先去排「黃金燒肉刈包」,排隊時其他人分頭買別的。</li>
+      </ul>
+    </div>
+
+    <div class="group">最多人推:一定要排</div>
+    <div class="food"><h3>黃金燒肉刈包 <span class="tag q">排隊 30–60 分</span></h3>
+      <p>刈包外皮先炸過,口感香酥,有原味、日式、韓式、泰式等多種口味,是夜市人氣最高的一攤。</p></div>
+    <div class="food"><h3>原石燒 石板烤肉</h3>
+      <p>香腸與石板烤肉都很受好評,生意很好。</p></div>
+    <div class="food"><h3>康拔無骨排骨酥</h3>
+      <p>網友口中「來冬山夜市必吃」,適合邊走邊吃。</p></div>
+
+    <div class="group">邊逛邊吃</div>
+    <div class="food"><h3>旗魚黑輪</h3>
+      <p>旗魚漿包水煮蛋再炸到酥脆,熱熱吃最好;辣味版多了辣粉。價格與優惠以現場為準。</p></div>
+    <div class="food"><h3>洋記手工 QQ 球</h3><p>顆粒超大。</p></div>
+    <div class="food"><h3>乾燒蛤</h3><p>蛤蜊飽滿多汁。</p></div>
+    <div class="food"><h3>三杯滷味 · 二龍脆皮鹹水雞</h3><p>想吃清爽一點可以選鹹水雞。</p></div>
+
+    <div class="group">吃飽一點</div>
+    <div class="food"><h3>小林鐵板炒飯蚵仔煎</h3><p>兩個鐵板同時開,出餐快。</p></div>
+    <div class="food"><h3>吳記麻油雞飯 · 隆記現炒麻油腰子</h3><p>麻油腰子建議現場吃,口感最好。</p></div>
+
+    <div class="group">甜點與飲料</div>
+    <div class="food"><h3>泰妃手工泰式茶</h3><p>泰式奶茶。</p></div>
+    <div class="food"><h3>伊瑪瀾小米甜甜圈 · 麻吉可麗餅</h3><p>可麗餅約 35 元起(網友紀錄,現價以現場為準)。</p></div>
+
+    <div class="actions" style="margin-top:14px">
+      <a class="btn sea" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E5%86%AC%E5%B1%B1%E5%A4%9C%E5%B8%82">在 Google 地圖開啟冬山夜市</a>
+    </div>
+  </section>
+</main>
+
+<footer>行程由「去趣 chictrip」製作 · Created by 黃貞雯<br>營業時間、票價為網路資料整理,出發前請再確認。</footer>
+
+<nav class="tabs" role="tablist" aria-label="切換頁面">
+  <button class="tab" role="tab" data-t="1" data-target="p1" aria-selected="true">第 1 天<small>10/17 週六</small></button>
+  <button class="tab" role="tab" data-t="2" data-target="p2" aria-selected="false">第 2 天<small>10/18 週日</small></button>
+  <button class="tab" role="tab" data-t="3" data-target="p3" aria-selected="false">冬山夜市<small>吃什麼</small></button>
+</nav>
+
+<script>
+const q = s => encodeURIComponent(s);
+const days = {
+  list1: [
+    {t:"07:20", kind:"出發", name:"三重區神農街 水丰景社區", stay:"出發", note:"出發前往振興醫院。", map:"新北市三重區神農街 水丰景社區", drive:"約 30 分"},
+    {t:"07:50", kind:"醫院", name:"振興醫院 眼科回診", stay:"預計 09:30 看診結束", note:"北投區振興街 45 號。", map:"振興醫院 台北市北投區振興街45號", drive:"約 2 小時(週六國5南下易塞)"},
+    {t:"11:45", kind:"景點", name:"蘭陽博物館", stay:"停留約 1 小時", note:"依山形設計的博物館,適合國中生的重點是山、平原、海三層常設展與天空步道、戶外天空之鏡。兒童考古探索廳以 12 歲以下為主,這次先略過。",
+      list:["開放 09:00–17:00(週三休館)","全票 100 元,學生票 50 元(需學生證)","停車後走到入口要一小段路"], map:"蘭陽博物館", tel:"03-977-9700", drive:"約 35 分,12:45 前要出發"},
+    {t:"13:20", kind:"午餐", name:"來來牛排館", stay:"用餐約 1 小時", note:"宜蘭老字號牛排,套餐附沙拉、濃湯、甜點,紅茶可續、義大利麵加量不加價。週六 11:00–22:00 營業,有停車場。", badge:"☎ 先電話訂位,假日常要排隊", map:"來來牛排館 宜蘭縣五結鄉親河路二段157號", tel:"03-950-2534", drive:"約 15 分"},
+    {t:"14:30", kind:"住宿", name:"F1特色民宿(點點民宿)羅東民宿", stay:"休息約 50 分", note:"入住休息、放行李。", map:"F1特色民宿 點點民宿 羅東", drive:"約 10 分"},
+    {t:"15:30", kind:"景點", name:"宜蘭傳藝園區", stay:"停留約 2 小時", note:"販售台灣傳統工藝品、食物和服裝的文化村。", list:["開放 09:00–18:00","成人 150 元,6 歲以上學生 120 元","每日 10:30、14:00 有踩街(今天會錯過)"], map:"宜蘭傳藝園區", drive:"約 20 分"},
+    {t:"17:50", kind:"晚餐", name:"冬山夜市", stay:"逛約 2 小時,18:00 開始", note:"點下方「冬山夜市」分頁看推薦美食。", jump:"p3", map:"冬山夜市 冬山火車站", drive:"約 15 分"},
+    {t:"20:05", kind:"住宿", name:"F1特色民宿(點點民宿)羅東民宿", stay:"回民宿休息", note:"結束第一天。", map:"F1特色民宿 點點民宿 羅東"}
+  ],
+  list2: [
+    {t:"06:30", kind:"住宿", name:"F1特色民宿(點點民宿)羅東民宿", stay:"停留 30 分", note:"起床準備。", map:"F1特色民宿 點點民宿 羅東", drive:"約 10 分"},
+    {t:"07:10", kind:"早餐", name:"好食光早餐(粉漿蛋餅、手作三明治)", stay:"停留 10 分", badge:"☎ 先打電話預訂,拿回民宿吃", map:"好食光早餐 羅東", drive:"約 10 分"},
+    {t:"07:30", kind:"住宿", name:"F1特色民宿(點點民宿)羅東民宿", stay:"停留 2 小時", note:"吃早餐、整理行李、退房。", map:"F1特色民宿 點點民宿 羅東", drive:"約 40 分"},
+    {t:"09:40", kind:"景點", name:"溪和水產觀光工廠", stay:"停留 2 小時", note:"參觀 + 吃海鮮。", map:"溪和水產觀光工廠", drive:"約 40 分"},
+    {t:"12:20", kind:"景點", name:"橘之鄉蜜餞形象館", stay:"停留 30 分", note:"蜜餞公司的博物館和工廠,有咖啡廳與 DIY 體驗活動。", map:"橘之鄉蜜餞形象館", drive:"步行 1 分"},
+    {t:"12:51", kind:"購物", name:"艾達皂房手工皂-總公司", stay:"停留 30 分", note:"買肥皂。", map:"艾達皂房手工皂 總公司", drive:"約 50 分"},
+    {t:"13:41", kind:"景點", name:"金車礁溪蘭花園附設動植物生態館", stay:"停留 2 小時", note:"溫室花園有蘭花、仙人掌、錦鯉池,還有水豚與貓咪。", map:"金車礁溪蘭花園", drive:"回三重約 1 時 30 分起(週日下午易塞)"},
+    {t:"17:15", kind:"回家", name:"三重區神農街 水丰景社區", stay:"到家休息", note:"回程結束。", map:"新北市三重區神農街 水丰景社區"}
+  ]
+};
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+for (const [id, stops] of Object.entries(days)) {
+  document.getElementById(id).innerHTML = stops.map(s => {
+    const acts = [];
+    if (s.tel) acts.push(`<a class="btn" href="tel:${s.tel.replace(/-/g,'')}">☎ ${esc(s.tel)}</a>`);
+    if (s.jump) acts.push(`<a class="btn" href="#" data-jump="${s.jump}">看夜市美食</a>`);
+    if (s.map) acts.push(`<a class="btn sea" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=${q(s.map)}">地圖導航</a>`);
+    const drive = s.drive ? `<div class="drive">↓ <b>${esc(s.drive.startsWith('步行') ? s.drive : (s.drive.startsWith('回三重') ? s.drive : '車程 ' + s.drive))}</b></div>` : "";
+    return `
+    <li>
+      <div class="stop">
+        <span class="dot" aria-hidden="true"></span>
+        <article class="card">
+          <div class="t"><span class="clock">${s.t}</span><span class="kind">${esc(s.kind)}</span></div>
+          <h3>${esc(s.name)}</h3>
+          ${s.stay ? `<div class="stay">${esc(s.stay)}</div>` : ""}
+          ${s.badge ? `<span class="badge">${esc(s.badge)}</span>` : ""}
+          ${s.note ? `<p>${esc(s.note)}</p>` : ""}
+          ${s.list ? `<ul>${s.list.map(x => `<li>${esc(x)}</li>`).join("")}</ul>` : ""}
+          ${acts.length ? `<div class="actions">${acts.join("")}</div>` : ""}
+        </article>
+      </div>
+      ${drive}
+    </li>`;
+  }).join("");
+}
+
+/* Tabs */
+const tabs = [...document.querySelectorAll('.tab')];
+const panels = [...document.querySelectorAll('.panel')];
+function show(id, push) {
+  panels.forEach(p => p.classList.toggle('on', p.id === id));
+  tabs.forEach(t => t.setAttribute('aria-selected', String(t.dataset.target === id)));
+  window.scrollTo({top: 0});
+  if (push) history.replaceState(null, '', '#' + id);
+}
+tabs.forEach(t => t.addEventListener('click', () => show(t.dataset.target, true)));
+document.addEventListener('click', e => {
+  const j = e.target.closest('[data-jump]');
+  if (j) { e.preventDefault(); show(j.dataset.jump, true); }
+});
+const h = location.hash.slice(1);
+if (['p1','p2','p3'].includes(h)) show(h, false);
+</script>
+</body>
+</html>
